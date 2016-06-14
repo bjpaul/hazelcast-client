@@ -30,7 +30,6 @@ public class ClientInstance {
     public void init() {
         System.out.println("<================ init ====================>");
         getClientInstance();
-//        addDistributedObjectListener();
     }
 
     public HazelcastInstance getClientInstance() {
@@ -55,6 +54,7 @@ public class ClientInstance {
                 while (hazelcastInstance == null || !hazelcastInstance.getLifecycleService().isRunning()) {
                     try {
                         hazelcastInstance = HazelcastClient.newHazelcastClient(clientConfig);
+                        //        addDistributedObjectListener();
                     } catch (IllegalStateException ex) {
                         System.out.println("************" + ex.getMessage());
                     }
